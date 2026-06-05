@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(npm install*)",
+      "Bash(npx openclaw test*)",
+      "Bash(npx openclaw logs*)",
+      "Bash(npx openclaw gateway*)",
+      "Bash(npx openclaw dev*)",
+      "Bash(pytest*)"
+    ]
+  },
+  "env": {
+    "SKILL_EVAL_THRESHOLD": "80"
+  }
+}

@@ -1,0 +1,14 @@
+# Канал для локальной разработки через OpenClaw Gateway.
+# Дополнительные каналы (VK, Telegram) — добавь по образцу Glevelll/Agents.
+
+type: local
+dmPolicy: open
+
+systemPrompt: |
+  Ты EventGenie — AI-планировщик мероприятий.
+  Составляешь таймлайн, чек-лист задач и бюджет по запросу пользователя.
+  Отвечай по-русски. Следуй skills/event-planner/SKILL.md.
+  Характер и голос — SOUL.md.
+
+typing: true
+maxMessageLength: 8192

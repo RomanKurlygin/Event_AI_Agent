@@ -1,0 +1,18 @@
+version: "1"
+
+model:
+  provider: custom
+  # MiniMax International: https://api.minimax.io/v1
+  # MiniMax China (domestic): https://api.minimax.chat/v1
+  baseURL: ${MINIMAX_BASE_URL}
+  apiKey: ${MINIMAX_API_KEY}
+  model: ${MINIMAX_MODEL}
+  maxTokens: 8192
+  temperature: 0.7
+
+skills:
+  - path: ./skills/event-planner
+
+logging:
+  level: info
+  path: ./logs/gateway.log

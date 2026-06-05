@@ -1,0 +1,73 @@
+# AI Event Planner
+
+AI-агент для планирования мероприятий: таймлайн, чек-листы задач, расчёт бюджета и рекомендации по оптимизации.
+
+Проект построен на **Markdown-first** архитектуре: поведение агентов, промпты, PRD и документация живут в `.md` файлах. Runtime — **OpenClaw Gateway + MiniMax LLM**.
+
+## Требования
+
+- **Node.js 20+** и npm (для OpenClaw)
+- **MiniMax API key** — в `.env`
+
+## Быстрый старт (OpenClaw + MiniMax)
+
+1. Скопируй `.env.example` → `.env`, вставь **реальный** `MINIMAX_API_KEY`, сохрани файл.
+2. `npm install`
+3. `.\scripts\setup-openclaw.ps1` — настройка workspace и MiniMax
+4. `npx openclaw gateway run` — запуск gateway
+5. `npx openclaw dashboard --no-open` → `http://127.0.0.1:18789`
+6. Подробнее: **docs/OPENCLAW-SETUP.md**
+
+Для разработки в Cursor: **SOUL.md**, **skills/event-planner/SKILL.md**, **docs/prds/**.
+
+## Структура проекта
+
+```
+AI-Event-Planner/
+├── AGENTS.md              # Правила для всех AI-инструментов
+├── CLAUDE.md              # Claude Code: субагенты, команды, workflow
+├── PROJECT.md             # Стек, команды, структура каталогов
+├── SOUL.md                # Характер и голос агента
+├── IDENTITY.md            # Имя, миссия, форматы ответов
+├── USER.md                # Контекст о пользователе
+├── MEMORY.md              # Стратегия долгосрочной памяти
+├── TOOLS.md               # Локальные заметки по инструментам
+├── HEARTBEAT.md           # Периодические проверки агента
+├── gateway/config.yaml    # OpenClaw + MiniMax
+├── channels/              # Каналы (cursor, VK, …)
+├── package.json           # openclaw dependency
+├── skills/
+│   └── event-planner/
+│       ├── SKILL.md       # Главный промпт + роутинг
+│       └── agents/        # Субагенты (maestro, planning, finance)
+├── docs/
+│   ├── prds/              # Product Requirements Documents
+│   ├── architecture/      # Технический дизайн
+│   ├── plans/             # Планы реализации
+│   ├── state/             # STATE.md для паузы/возобновления
+│   └── templates/         # Шаблоны PRD и CONTEXT
+└── .claude/
+    ├── agents/            # Субагенты для разработки
+    ├── commands/          # Slash-команды
+    └── my-skill/          # Доменные навыки
+```
+
+## AI-агенты (домен)
+
+| Агент | Роль |
+|-------|------|
+| **Maestro** | Оркестратор: определяет intent, маршрутизирует запросы |
+| **Planning Agent** | Таймлайн, этапы, чек-лист задач с приоритетами |
+| **Finance Agent** | Бюджет по категориям, анализ, рекомендации |
+
+Подробнее: `skills/event-planner/agents/` и `docs/architecture/SYSTEM.md`.
+
+## Ссылки
+
+- Архитектура агента: [Glevelll/Agents](https://github.com/Glevelll/Agents)
+- Домен EventGenie: [Jack1337322/eventgenie-agents](https://github.com/Jack1337322/eventgenie-agents)
+- PRD-driven workflow: [RomanKurlygin/AgentsDevelopmentTeams](https://github.com/RomanKurlygin/AgentsDevelopmentTeams)
+
+## Лицензия
+
+MIT

@@ -1,0 +1,9 @@
+{
+  "name": "ai-event-planner",
+  "version": "1.0.0",
+  "description": "AI Event Planner — OpenClaw + MiniMax agent workspace",
+  "private": true,
+  "dependencies": {
+    "openclaw": "^2026.5.27"
+  }
+}
