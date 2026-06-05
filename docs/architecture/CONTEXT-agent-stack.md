@@ -12,14 +12,14 @@
 
 ## Context
 
-Курс дал PRD-driven workflow; eventgenie-agents — домен (Maestro, Planning, Finance); Glevelll/Agents — OpenClaw + MiniMax + MD workspace. Пользователь имеет ключ MiniMax.
+PRD-driven workflow; домен EventGenie (Maestro, Planning, Finance); runtime — OpenClaw + LLM + MD workspace.
 
 ## Options Considered
 
 | Option | Pros | Cons |
 |--------|------|------|
-| A: GigaChat + FastAPI | Как eventgenie-agents | Нет OpenClaw, другой LLM |
-| B: OpenClaw + MiniMax + MD | Как Glevelll/Agents, ключ есть | Нужен npm/Node |
+| A: GigaChat + FastAPI | Привычный Python-стек | Нет OpenClaw, другой LLM |
+| B: OpenClaw + MiniMax + MD | Единый gateway, MD-промпты | Нужен npm/Node |
 | C: Только Cursor без gateway | Проще | Нет единого runtime |
 
 ## Chosen Approach
@@ -45,4 +45,4 @@ OpenClaw Gateway
 
 - PRD: `docs/prds/PRD-event-planning.md`
 - Architecture: `docs/architecture/SYSTEM.md`
-- Reference: [Glevelll/Agents](https://github.com/Glevelll/Agents)
+- Setup: `docs/OPENCLAW-SETUP.md`

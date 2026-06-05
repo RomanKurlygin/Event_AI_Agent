@@ -30,7 +30,7 @@ OpenClaw gateway запущен локально. Осталось: сохран
 
 ## Open Questions
 
-- Нужен ли VK-канал (как в Glevelll/Agents)?
+- Нужен ли VK-канал для EventGenie?
 - Какая модель MiniMax оптимальна для JSON (MiniMax-Text-01 vs другие)?
 
 ## Blockers

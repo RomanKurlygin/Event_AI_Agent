@@ -26,7 +26,7 @@
 
 ## Phase 2: Python Runtime (optional)
 
-**Goal:** FastAPI сервис как в eventgenie-agents.
+**Goal:** FastAPI-сервис с REST API для планирования и бюджета (Phase 2).
 
 1. `src/main.py` — FastAPI app, CORS, /health
 2. `src/llm/gigachat_client.py` — GigaChat SDK

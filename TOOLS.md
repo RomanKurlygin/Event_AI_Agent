@@ -35,7 +35,7 @@ Skills описывают _как_ работают инструменты. Эт
 - channels/cursor.yaml — dmPolicy: open
 
 ### Дополнительно (опционально)
-- VK: openclaw-vk plugin (см. Glevelll/Agents)
+- VK: плагин `openclaw-vk` (см. [OpenClaw docs](https://docs.openclaw.ai/))
 - Telegram: добавить channel config при необходимости
 ```
 

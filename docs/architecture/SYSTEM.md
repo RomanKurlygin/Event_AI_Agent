@@ -158,5 +158,6 @@ AI Event Planner — markdown-first многоагентная система д
 
 ## References
 
-- [eventgenie-agents](https://github.com/Jack1337322/eventgenie-agents)
-- [Glevelll/Agents](https://github.com/Glevelll/Agents)
+- `docs/prds/PRD-event-planning.md`
+- `docs/OPENCLAW-SETUP.md`
+- [OpenClaw docs](https://docs.openclaw.ai/)

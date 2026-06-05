@@ -1,5 +1,5 @@
 # Канал для локальной разработки через OpenClaw Gateway.
-# Дополнительные каналы (VK, Telegram) — добавь по образцу Glevelll/Agents.
+# Дополнительные каналы (VK, Telegram) — см. docs/OPENCLAW-SETUP.md и OpenClaw channel docs.
 
 type: local
 dmPolicy: open

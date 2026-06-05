@@ -1,6 +1,6 @@
 # Hooks
 
-Опциональная система lifecycle hooks для PRD-driven development (из курса AgentsDevelopmentTeams).
+Опциональная система lifecycle hooks для PRD-driven development.
 
 Конфигурация: **`.claude/settings.json`**
 
@@ -12,7 +12,7 @@
 | PostToolUse | `Skill` | `.claude/hooks/prd-quality-check.sh` |
 | Stop | — | `.claude/hooks/session-report.sh` |
 
-> Hooks не включены в Phase 1. Добавь скрипты при необходимости по образцу [RomanKurlygin/AgentsDevelopmentTeams](https://github.com/RomanKurlygin/AgentsDevelopmentTeams).
+> Hooks не включены в Phase 1. Добавь скрипты в `.claude/hooks/` при необходимости.
 
 ## PRD-focused features
 

@@ -23,7 +23,7 @@
 
 ## 3. Background
 
-Проект основан на [eventgenie-agents](https://github.com/Jack1337322/eventgenie-agents) (домен: Maestro, Planning, Finance) и архитектуре [Glevelll/Agents](https://github.com/Glevelll/Agents) (OpenClaw + MiniMax + MD workspace). Методология PRD — из курса [AgentsDevelopmentTeams](https://github.com/RomanKurlygin/AgentsDevelopmentTeams).
+EventGenie — мультиагентный планировщик мероприятий (Maestro, Planning, Finance) на **OpenClaw Gateway + MiniMax/OpenRouter** с **Markdown-first** workspace и PRD-driven workflow.
 
 **Runtime:** OpenClaw Gateway + MiniMax LLM (`gateway/config.yaml`).
 

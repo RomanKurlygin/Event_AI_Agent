@@ -62,11 +62,12 @@ AI-Event-Planner/
 
 Подробнее: `skills/event-planner/agents/` и `docs/architecture/SYSTEM.md`.
 
-## Ссылки
+## Документация
 
-- Архитектура агента: [Glevelll/Agents](https://github.com/Glevelll/Agents)
-- Домен EventGenie: [Jack1337322/eventgenie-agents](https://github.com/Jack1337322/eventgenie-agents)
-- PRD-driven workflow: [RomanKurlygin/AgentsDevelopmentTeams](https://github.com/RomanKurlygin/AgentsDevelopmentTeams)
+- Настройка OpenClaw: `docs/OPENCLAW-SETUP.md`
+- PRD: `docs/prds/PRD-event-planning.md`
+- Архитектура: `docs/architecture/SYSTEM.md`
+- Репозиторий: [Event_AI_Agent](https://github.com/RomanKurlygin/Event_AI_Agent)
 
 ## Лицензия
 
