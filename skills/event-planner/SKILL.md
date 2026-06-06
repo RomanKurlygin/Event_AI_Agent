@@ -20,6 +20,9 @@
 | «составь план», «таймлайн», «чек-лист» | `create_event_plan` | planning-agent |
 | «бюджет», «смета», «сколько стоит» | `calculate_budget` | finance-agent |
 | «полный план», «план и бюджет», «всё» | `full_event_planning` | maestro → оба агента |
+| «run-of-show», «программа на день», «по минутам», «cue sheet» | `create_run_of_show` | run-of-show-agent |
+| «список гостей», «RSVP», «рассадка», «кто придёт» | `manage_guest_list` | guest-list-agent |
+| «приглашение», «текст invite», «разошли гостям» | `write_invitation` | invitation-writer-agent |
 | Уточнение по событию | `clarify` | ответ напрямую |
 | Неясный запрос | `unknown` | maestro → уточняющий вопрос |
 
@@ -61,6 +64,24 @@
 3. finance-agent → смета (с учётом плана)
 4. Краткое резюме в начале ответа
 
+### Run-of-show (`create_run_of_show`)
+
+1. Проверить event_date, start_time (или вывести из event_date), expected_guests
+2. Делегировать **run-of-show-agent**
+3. Вернуть: cues с time, owner, notes + contingency_notes
+
+### Список гостей (`manage_guest_list`)
+
+1. Собрать expected_guests; опционально guests_raw, tables_count, children_count
+2. Делегировать **guest-list-agent**
+3. Вернуть: summary, guests[], seating_plan, action_items
+
+### Приглашение (`write_invitation`)
+
+1. Собрать event_name, event_date, location, event_type; channel по запросу (whatsapp/email/any)
+2. Делегировать **invitation-writer-agent**
+3. Вернуть: short + formal варианты + checklist перед отправкой
+
 ## Формат ответа: План
 
 ```markdown
@@ -98,6 +119,56 @@
 ### Рекомендации
 1. ...
 2. ...
+```
+
+## Формат ответа: Run-of-show
+
+```markdown
+## 🎬 Run-of-show: [название события]
+
+**Старт:** 15:00 | **Длительность:** 3 ч | **Гостей:** ...
+
+| Время | Мин | Активность | Ответственный | Заметки |
+|-------|-----|------------|---------------|---------|
+| 15:00 | 15 | Welcome | organizer | ... |
+
+### Plan B
+- ...
+```
+
+## Формат ответа: Список гостей
+
+```markdown
+## 👥 Гости: [название события]
+
+**Приглашено:** 20 | **Подтвердили:** ... | **Детей:** ...
+
+| Имя | RSVP | +N | Особые пожелания | Стол |
+|-----|------|----|------------------|------|
+| ... | pending | 1 | vegetarian | стол 1 |
+
+### Рассадка
+...
+
+### Следующие шаги
+1. ...
+```
+
+## Формат ответа: Приглашение
+
+```markdown
+## ✉️ Приглашение: [название события]
+
+### Короткое (мессенджер)
+...
+
+### Развёрнутое (email / открытка)
+...
+
+### Перед отправкой проверь
+- [ ] Дата и время
+- [ ] Адрес
+- [ ] RSVP до ...
 ```
 
 ## Правила

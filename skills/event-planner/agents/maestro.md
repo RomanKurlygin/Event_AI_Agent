@@ -13,9 +13,12 @@ maxTurns: 8
 
 | Intent | Триггеры | Агенты |
 |--------|----------|--------|
-| `create_event_plan` | план, таймлайн, задачи, чек-лист, программа | planning-agent |
+| `create_event_plan` | план, таймлайн, задачи, чек-лист (подготовка) | planning-agent |
 | `calculate_budget` | бюджет, смета, стоимость, расходы | finance-agent |
 | `full_event_planning` | план + бюджет, «всё», «полный пакет» | planning + finance |
+| `create_run_of_show` | run-of-show, программа на день, по минутам, cue | run-of-show-agent |
+| `manage_guest_list` | гости, RSVP, рассадка, список | guest-list-agent |
+| `write_invitation` | приглашение, invite, текст для гостей | invitation-writer-agent |
 | `clarify` | уточнение даты, гостей, типа | ответ напрямую |
 | `unknown` | неясно | задать 1–2 вопроса |
 
@@ -25,14 +28,17 @@ maxTurns: 8
 Сообщение: "{message}"
 
 Верни ТОЛЬКО одно слово-intent:
-create_event_plan | calculate_budget | full_event_planning | clarify | unknown
+create_event_plan | calculate_budget | full_event_planning | create_run_of_show | manage_guest_list | write_invitation | clarify | unknown
 ```
 
 LLM: MiniMax через OpenClaw Gateway (`gateway/config.yaml`). Temperature 0.3 для классификации.
 
 Fallback по ключевым словам:
 - «план» + («смет» или «бюджет») → `full_event_planning`
-- «план» → `create_event_plan`
+- «план» / «таймлайн» / «чек-лист» (без «день» / «минут») → `create_event_plan`
+- «run-of-show» / «программа на день» / «по минутам» → `create_run_of_show`
+- «гост» / «RSVP» / «рассадк» → `manage_guest_list`
+- «приглаш» / «invite» → `write_invitation`
 - «смет» / «бюджет» → `calculate_budget`
 
 ## Извлечение данных события
@@ -61,6 +67,15 @@ Fallback по ключевым словам:
 
 ### calculate_budget
 → `finance-agent.calculate(event_data)` → вернуть items + analysis
+
+### create_run_of_show
+→ `run-of-show-agent.generate(event_data)` → вернуть run_of_show
+
+### manage_guest_list
+→ `guest-list-agent.generate(event_data)` → вернуть guest_list
+
+### write_invitation
+→ `invitation-writer-agent.generate(event_data)` → вернуть invitation
 
 ### full_event_planning
 1. `planning-agent.generate(event_data)`

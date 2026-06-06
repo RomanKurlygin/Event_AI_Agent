@@ -56,9 +56,12 @@ AI-Event-Planner/
 
 | Агент | Роль |
 |-------|------|
-| **Maestro** | Оркестратор: определяет intent, маршрутизирует запросы |
-| **Planning Agent** | Таймлайн, этапы, чек-лист задач с приоритетами |
+| **Maestro** | Оркестратор: intent, маршрутизация |
+| **Planning Agent** | Таймлайн подготовки, задачи с приоритетами |
 | **Finance Agent** | Бюджет по категориям, анализ, рекомендации |
+| **Run-of-show Agent** | Программа дня по минутам |
+| **Guest List Agent** | RSVP, рассадка, сводка для кейтеринга |
+| **Invitation Writer** | Тексты приглашений (мессенджер / email) |
 
 Подробнее: `skills/event-planner/agents/` и `docs/architecture/SYSTEM.md`.
 

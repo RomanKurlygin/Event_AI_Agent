@@ -60,6 +60,9 @@ docs/
 | Maestro | `skills/event-planner/agents/maestro.md` | Intent, роутинг |
 | Planning | `skills/event-planner/agents/planning-agent.md` | Таймлайн, задачи |
 | Finance | `skills/event-planner/agents/finance-agent.md` | Бюджет, рекомендации |
+| Run-of-show | `skills/event-planner/agents/run-of-show-agent.md` | Программа дня по минутам |
+| Guest list | `skills/event-planner/agents/guest-list-agent.md` | RSVP, рассадка |
+| Invitation | `skills/event-planner/agents/invitation-writer-agent.md` | Тексты приглашений |
 
 Главный роутинг — в `skills/event-planner/SKILL.md`.
 

@@ -51,6 +51,9 @@ node node_modules\openclaw\openclaw.mjs gateway run
 | `event-planning` | Промпты и правила Planning Agent |
 | `budget-calculation` | Промпты и правила Finance Agent |
 | `prd-creator` | Создание PRD по шаблону |
+| `run-of-show` | Программа дня по минутам |
+| `guest-list-manager` | Гости, RSVP, рассадка |
+| `invitation-writer` | Тексты приглашений |
 
 ## Directory Structure
 
