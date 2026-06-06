@@ -23,6 +23,7 @@
 | «run-of-show», «программа на день», «по минутам», «cue sheet» | `create_run_of_show` | run-of-show-agent |
 | «список гостей», «RSVP», «рассадка», «кто придёт» | `manage_guest_list` | guest-list-agent |
 | «приглашение», «текст invite», «разошли гостям» | `write_invitation` | invitation-writer-agent |
+| «карточка приглашения», «HTML invite», «открытка», «красивая invite» | `write_invitation` (+ HTML) | invitation-writer-agent |
 | Уточнение по событию | `clarify` | ответ напрямую |
 | Неясный запрос | `unknown` | maestro → уточняющий вопрос |
 
@@ -79,8 +80,10 @@
 ### Приглашение (`write_invitation`)
 
 1. Собрать event_name, event_date, location, event_type; channel по запросу (whatsapp/email/any)
-2. Делегировать **invitation-writer-agent**
-3. Вернуть: short + formal варианты + checklist перед отправкой
+2. Если просят карточку / HTML / открытку — `output_format: both`; иначе `text`
+3. Делегировать **invitation-writer-agent**
+4. Вернуть: short + formal + checklist; при HTML — путь к файлу и «открой в браузере»
+5. Дизайн карточки — только из `docs/templates/invitation/DESIGN-SOURCES.md`
 
 ## Формат ответа: План
 
@@ -165,10 +168,16 @@
 ### Развёрнутое (email / открытка)
 ...
 
+### HTML-карточка (если запрошена)
+📄 **Файл:** `output/invitations/[slug]-[date].html`
+🎨 **Тема:** birthday-warm / wedding-elegant / …
+Откройте в браузере или распечатайте (Ctrl+P).
+
 ### Перед отправкой проверь
 - [ ] Дата и время
 - [ ] Адрес
 - [ ] RSVP до ...
+- [ ] HTML открывается в браузере (если карточка)
 ```
 
 ## Правила

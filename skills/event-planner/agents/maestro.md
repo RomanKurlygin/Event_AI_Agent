@@ -18,7 +18,7 @@ maxTurns: 8
 | `full_event_planning` | план + бюджет, «всё», «полный пакет» | planning + finance |
 | `create_run_of_show` | run-of-show, программа на день, по минутам, cue | run-of-show-agent |
 | `manage_guest_list` | гости, RSVP, рассадка, список | guest-list-agent |
-| `write_invitation` | приглашение, invite, текст для гостей | invitation-writer-agent |
+| `write_invitation` | приглашение, invite, карточка, HTML, открытка | invitation-writer-agent |
 | `clarify` | уточнение даты, гостей, типа | ответ напрямую |
 | `unknown` | неясно | задать 1–2 вопроса |
 
@@ -38,7 +38,7 @@ Fallback по ключевым словам:
 - «план» / «таймлайн» / «чек-лист» (без «день» / «минут») → `create_event_plan`
 - «run-of-show» / «программа на день» / «по минутам» → `create_run_of_show`
 - «гост» / «RSVP» / «рассадк» → `manage_guest_list`
-- «приглаш» / «invite» → `write_invitation`
+- «приглаш» / «invite» / «карточк» / «открытк» / «html invite» → `write_invitation`
 - «смет» / «бюджет» → `calculate_budget`
 
 ## Извлечение данных события
@@ -75,7 +75,8 @@ Fallback по ключевым словам:
 → `guest-list-agent.generate(event_data)` → вернуть guest_list
 
 ### write_invitation
-→ `invitation-writer-agent.generate(event_data)` → вернуть invitation
+→ `invitation-writer-agent.generate(event_data)` → вернуть invitation (+ html_card если карточка/HTML)
+→ `output_format: both` если триггеры: карточка, открытка, html, красив
 
 ### full_event_planning
 1. `planning-agent.generate(event_data)`

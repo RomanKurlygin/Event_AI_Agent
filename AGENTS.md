@@ -62,7 +62,7 @@ docs/
 | Finance | `skills/event-planner/agents/finance-agent.md` | Бюджет, рекомендации |
 | Run-of-show | `skills/event-planner/agents/run-of-show-agent.md` | Программа дня по минутам |
 | Guest list | `skills/event-planner/agents/guest-list-agent.md` | RSVP, рассадка |
-| Invitation | `skills/event-planner/agents/invitation-writer-agent.md` | Тексты приглашений |
+| Invitation | `skills/event-planner/agents/invitation-writer-agent.md` | Тексты + HTML-карточки |
 
 Главный роутинг — в `skills/event-planner/SKILL.md`.
 

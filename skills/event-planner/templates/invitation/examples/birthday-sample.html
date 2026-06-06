@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>День рождения Маши — приглашение</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-overlay: rgba(255, 107, 129, 0.75);
+      --card-bg: #fffaf7;
+      --text-primary: #2d1b2e;
+      --text-secondary: #6b4c6d;
+      --accent: #ff6b81;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', system-ui, sans-serif;
+      --font-script: 'Great Vibes', cursive;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: #111 center/cover no-repeat fixed;
+      background-image:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url('https://images.unsplash.com/photo-1530103862676-de8c9deb7800?w=1200&q=80');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .card {
+      background: var(--card-bg);
+      max-width: 520px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    .card-accent { height: 4px; background: linear-gradient(90deg, var(--accent), #ffb3c1); }
+    .card-inner { padding: 40px 36px 32px; }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .script-line {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .meta {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(107, 76, 109, 0.2);
+    }
+    .meta-item { display: flex; gap: 12px; align-items: flex-start; }
+    .meta-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 107, 129, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .meta-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+    .meta-value { font-size: 1rem; font-weight: 500; line-height: 1.4; }
+    .body-text {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+    .rsvp {
+      background: rgba(255, 107, 129, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 24px;
+    }
+    .rsvp strong { display: block; margin-bottom: 4px; }
+    .rsvp span { font-size: 0.9rem; color: var(--text-secondary); }
+    .footer {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      text-align: center;
+      padding-top: 16px;
+      border-top: 1px solid rgba(107, 76, 109, 0.15);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <div class="card-accent"></div>
+    <div class="card-inner">
+      <p class="eyebrow">Приглашение</p>
+      <p class="script-line">Вы приглашены!</p>
+      <h1>День рождения Маши</h1>
+      <div class="meta">
+        <div class="meta-item">
+          <div class="meta-icon">📅</div>
+          <div>
+            <div class="meta-label">Дата и время</div>
+            <div class="meta-value">12 апреля 2026, 15:00</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">📍</div>
+          <div>
+            <div class="meta-label">Место</div>
+            <div class="meta-value">Москва, лофт на ул. Примерная, 10</div>
+          </div>
+        </div>
+      </div>
+      <p class="body-text">
+        Дорогие друзья! Приглашаем вас разделить с нами радостный день — праздник,
+        музыку и тёплую компанию. Будем рады видеть каждого из вас!
+      </p>
+      <div class="rsvp">
+        <strong>Подтвердите участие</strong>
+        <span>До 5 апреля 2026 — напишите организатору или ответьте в чат</span>
+      </div>
+      <footer class="footer">
+        Создано EventGenie · Фото:
+        <a href="https://unsplash.com/photos/party-balloons" target="_blank" rel="noopener">Al Elmes on Unsplash</a>
+      </footer>
+    </div>
+  </article>
+</body>
+</html>

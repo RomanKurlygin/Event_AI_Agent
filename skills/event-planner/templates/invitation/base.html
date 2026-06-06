@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{EVENT_TITLE}} — приглашение</title>
+  <!-- Google Fonts: заменить URL из docs/templates/invitation/DESIGN-SOURCES.md -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="{{GOOGLE_FONTS_URL}}" rel="stylesheet">
+  <style>
+    :root {
+      --bg-overlay: {{BG_OVERLAY}};
+      --card-bg: {{CARD_BG}};
+      --text-primary: {{TEXT_PRIMARY}};
+      --text-secondary: {{TEXT_SECONDARY}};
+      --accent: {{ACCENT}};
+      --font-heading: '{{FONT_HEADING}}', Georgia, serif;
+      --font-body: '{{FONT_BODY}}', system-ui, sans-serif;
+      --font-script: '{{FONT_SCRIPT}}', cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: #111 center/cover no-repeat fixed;
+      background-image:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url('{{BACKGROUND_URL}}');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      max-width: 520px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-accent {
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 60%, white));
+    }
+
+    .card-inner { padding: 40px 36px 32px; }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .script-line {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid color-mix(in srgb, var(--text-secondary) 25%, transparent);
+    }
+
+    .meta-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .meta-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .meta-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .meta-value {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .body-text {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+
+    .rsvp {
+      background: color-mix(in srgb, var(--accent) 8%, var(--card-bg));
+      border-left: 3px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 24px;
+    }
+
+    .rsvp strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .rsvp span { font-size: 0.9rem; color: var(--text-secondary); }
+
+    .footer {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      text-align: center;
+      padding-top: 16px;
+      border-top: 1px solid color-mix(in srgb, var(--text-secondary) 20%, transparent);
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .card-inner { padding: 28px 22px 24px; }
+      h1 { font-size: 1.75rem; }
+    }
+
+    @media print {
+      body {
+        background: white !important;
+        padding: 0;
+      }
+      .card {
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .footer { font-size: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card" role="article" aria-label="Приглашение">
+    <div class="card-accent"></div>
+    <div class="card-inner">
+      <p class="eyebrow">{{EYEBROW_TEXT}}</p>
+      <!-- Убрать .script-line для corporate/conference -->
+      <p class="script-line">{{SCRIPT_LINE}}</p>
+      <h1>{{EVENT_TITLE}}</h1>
+
+      <div class="meta">
+        <div class="meta-item">
+          <div class="meta-icon" aria-hidden="true">📅</div>
+          <div>
+            <div class="meta-label">Дата и время</div>
+            <div class="meta-value">{{DATE_TIME}}</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon" aria-hidden="true">📍</div>
+          <div>
+            <div class="meta-label">Место</div>
+            <div class="meta-value">{{LOCATION}}</div>
+          </div>
+        </div>
+        <!-- Опционально: dress code, контакт -->
+        {{OPTIONAL_META}}
+      </div>
+
+      <p class="body-text">{{FORMAL_TEXT}}</p>
+
+      <div class="rsvp">
+        <strong>Подтвердите участие</strong>
+        <span>{{RSVP_TEXT}}</span>
+      </div>
+
+      <footer class="footer">
+        Создано EventGenie · Фото:
+        <a href="{{PHOTO_CREDIT_URL}}" target="_blank" rel="noopener">{{PHOTO_CREDIT}}</a>
+      </footer>
+    </div>
+  </article>
+</body>
+</html>

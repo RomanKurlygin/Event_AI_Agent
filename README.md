@@ -39,7 +39,8 @@ AI-Event-Planner/
 ├── skills/
 │   └── event-planner/
 │       ├── SKILL.md       # Главный промпт + роутинг
-│       └── agents/        # Субагенты (maestro, planning, finance)
+│       ├── agents/        # Субагенты (maestro, planning, finance)
+│       └── templates/     # HTML-шаблоны (приглашения)
 ├── docs/
 │   ├── prds/              # Product Requirements Documents
 │   ├── architecture/      # Технический дизайн
@@ -61,7 +62,7 @@ AI-Event-Planner/
 | **Finance Agent** | Бюджет по категориям, анализ, рекомендации |
 | **Run-of-show Agent** | Программа дня по минутам |
 | **Guest List Agent** | RSVP, рассадка, сводка для кейтеринга |
-| **Invitation Writer** | Тексты приглашений (мессенджер / email) |
+| **Invitation Writer** | Тексты приглашений + HTML-карточки (Google Fonts, Unsplash) |
 
 Подробнее: `skills/event-planner/agents/` и `docs/architecture/SYSTEM.md`.
 

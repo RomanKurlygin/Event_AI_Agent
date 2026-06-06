@@ -53,7 +53,7 @@ node node_modules\openclaw\openclaw.mjs gateway run
 | `prd-creator` | Создание PRD по шаблону |
 | `run-of-show` | Программа дня по минутам |
 | `guest-list-manager` | Гости, RSVP, рассадка |
-| `invitation-writer` | Тексты приглашений |
+| `invitation-writer` | Тексты и HTML-карточки приглашений |
 
 ## Directory Structure
 

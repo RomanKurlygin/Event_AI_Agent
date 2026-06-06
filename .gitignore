@@ -27,6 +27,7 @@ Thumbs.db
 
 # Agent runtime data
 data/
+output/
 logs/*.log
 logs/gateway.log
 node_modules/
