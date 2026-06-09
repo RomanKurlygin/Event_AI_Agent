@@ -58,6 +58,7 @@ node node_modules\openclaw\openclaw.mjs gateway run
 | `social-posts` | Посты для VK/Telegram |
 | `thank-you-writer` | Благодарности гостям и подрядчикам |
 | `feedback-survey` | Опрос удовлетворённости |
+| `image-generator` | Генерация изображений (баннеры, афиши) |
 
 ## Directory Structure
 

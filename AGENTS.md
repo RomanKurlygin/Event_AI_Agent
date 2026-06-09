@@ -67,6 +67,7 @@ docs/
 | Social posts | `skills/event-planner/agents/social-posts-agent.md` | Посты VK/Telegram |
 | Thank you | `skills/event-planner/agents/thank-you-writer-agent.md` | Благодарности после события |
 | Feedback survey | `skills/event-planner/agents/feedback-survey-agent.md` | Опрос гостей |
+| Image generator | `skills/event-planner/agents/image-generator-agent.md` | Картинки, баннеры, афиши |
 
 Главный роутинг — в `skills/event-planner/SKILL.md`.
 

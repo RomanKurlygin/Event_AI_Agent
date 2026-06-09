@@ -67,6 +67,7 @@ AI-Event-Planner/
 | **Social Posts** | Анонсы и countdown для VK/Telegram |
 | **Thank You Writer** | Благодарности после мероприятия |
 | **Feedback Survey** | Опрос гостей (NPS, шкалы, open-вопросы) |
+| **Image Generator** | Картинки для приглашений, VK-баннеров, афиш |
 
 Подробнее: `skills/event-planner/agents/` и `docs/architecture/SYSTEM.md`.
 

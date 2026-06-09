@@ -34,6 +34,13 @@ Skills описывают _как_ работают инструменты. Эт
 ### cursor.yaml (локальная разработка)
 - channels/cursor.yaml — dmPolicy: open
 
+### Генерация изображений
+
+- OpenClaw tool: `image_generate`
+- Стили промптов: `docs/templates/image/IMAGE-PROMPTS.md`
+- Выход: `output/images/`
+- Модели: `minimax/image-01` или OpenRouter image (Gemini flash image)
+
 ### VK (ВКонтакте)
 - Плагин: `@openclaw-vk/vk` — `npx openclaw plugins install @openclaw-vk/vk`
 - Настройка: `.\scripts\setup-vk-channel.ps1`

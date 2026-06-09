@@ -23,6 +23,7 @@ maxTurns: 8
 | `create_social_posts` | пост VK/Telegram, анонс, countdown, соцсети | social-posts-agent |
 | `write_thank_you` | спасибо, благодарность, thank you | thank-you-writer-agent |
 | `create_feedback_survey` | опрос, feedback, NPS, удовлетворённость | feedback-survey-agent |
+| `generate_event_image` | картинка, баннер, афиша, нарисуй, изображение | image-generator-agent |
 | `clarify` | уточнение даты, гостей, типа | ответ напрямую |
 | `unknown` | неясно | задать 1–2 вопроса |
 
@@ -32,7 +33,7 @@ maxTurns: 8
 Сообщение: "{message}"
 
 Верни ТОЛЬКО одно слово-intent:
-create_event_plan | calculate_budget | full_event_planning | create_run_of_show | manage_guest_list | write_invitation | create_risk_checklist | create_social_posts | write_thank_you | create_feedback_survey | clarify | unknown
+create_event_plan | calculate_budget | full_event_planning | create_run_of_show | manage_guest_list | write_invitation | create_risk_checklist | create_social_posts | write_thank_you | create_feedback_survey | generate_event_image | clarify | unknown
 ```
 
 LLM: MiniMax через OpenClaw Gateway (`gateway/config.yaml`). Temperature 0.3 для классификации.
@@ -47,6 +48,7 @@ Fallback по ключевым словам:
 - «пост» / «анонс» / «vk» / «countdown» / «соцсет» → `create_social_posts`
 - «спасибо» / «благодар» / «thank you» → `write_thank_you`
 - «опрос» / «feedback» / «nps» / «удовлетворён» → `create_feedback_survey`
+- «картинк» / «изображен» / «баннер» / «афиш» / «нарисуй» / «сгенерируй фото» → `generate_event_image`
 - «смет» / «бюджет» → `calculate_budget`
 
 ## Извлечение данных события
@@ -97,6 +99,9 @@ Fallback по ключевым словам:
 
 ### create_feedback_survey
 → `feedback-survey-agent.generate(event_data)` → вернуть feedback_survey
+
+### generate_event_image
+→ `image-generator-agent.generate(event_data)` → вызвать image_generate → вернуть generated_image
 
 ### full_event_planning
 1. `planning-agent.generate(event_data)`

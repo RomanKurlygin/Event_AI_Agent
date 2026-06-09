@@ -28,6 +28,7 @@
 | «пост для VK», «анонс», «соцсети», «countdown», «пост в телеграм» | `create_social_posts` | social-posts-agent |
 | «спасибо гостям», «благодарность», «thank you» | `write_thank_you` | thank-you-writer-agent |
 | «опрос гостей», «feedback», «удовлетворённость», «NPS» | `create_feedback_survey` | feedback-survey-agent |
+| «картинка», «изображение», «баннер», «афиша», «нарисуй», «сгенерируй фото» | `generate_event_image` | image-generator-agent |
 | Уточнение по событию | `clarify` | ответ напрямую |
 | Неясный запрос | `unknown` | maestro → уточняющий вопрос |
 
@@ -112,6 +113,14 @@
 1. Собрать event_type, expected_guests; survey_length по запросу
 2. Делегировать **feedback-survey-agent**
 3. Вернуть: intro + questions + thank_you_message + distribution_tips
+
+### Изображение (`generate_event_image`)
+
+1. Собрать event_name, event_type; image_type по запросу (баннер → social_banner, афиша → poster)
+2. Делегировать **image-generator-agent**
+3. Агент вызывает OpenClaw **`image_generate`**, сохраняет в `output/images/`
+4. Промпты — только из `docs/templates/image/IMAGE-PROMPTS.md`
+5. Вернуть: путь к файлу + prompt + подсказку (VK / HTML-приглашение)
 
 ## Формат ответа: План
 
@@ -283,6 +292,24 @@
 
 ### Как разослать
 1. ...
+```
+
+## Формат ответа: Изображение
+
+```markdown
+## 🖼️ Изображение: [название события]
+
+**Тип:** invitation_cover / social_banner / poster / mood_board
+**Файл:** `output/images/[slug]-[type]-[date].png`
+**Тема:** wedding-elegant / birthday-warm / …
+
+### Промпт (для справки)
+...
+
+### Как использовать
+- Вложение к посту VK
+- Фон для HTML-приглашения
+- Печать афиши
 ```
 
 ## Правила
