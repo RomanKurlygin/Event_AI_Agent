@@ -24,6 +24,10 @@
 | «список гостей», «RSVP», «рассадка», «кто придёт» | `manage_guest_list` | guest-list-agent |
 | «приглашение», «текст invite», «разошли гостям» | `write_invitation` | invitation-writer-agent |
 | «карточка приглашения», «HTML invite», «открытка», «красивая invite» | `write_invitation` (+ HTML) | invitation-writer-agent |
+| «риски», «что может пойти не так», «plan B», «чек-лист рисков» | `create_risk_checklist` | risk-checklist-agent |
+| «пост для VK», «анонс», «соцсети», «countdown», «пост в телеграм» | `create_social_posts` | social-posts-agent |
+| «спасибо гостям», «благодарность», «thank you» | `write_thank_you` | thank-you-writer-agent |
+| «опрос гостей», «feedback», «удовлетворённость», «NPS» | `create_feedback_survey` | feedback-survey-agent |
 | Уточнение по событию | `clarify` | ответ напрямую |
 | Неясный запрос | `unknown` | maestro → уточняющий вопрос |
 
@@ -84,6 +88,30 @@
 3. Делегировать **invitation-writer-agent**
 4. Вернуть: short + formal + checklist; при HTML — путь к файлу и «открой в браузере»
 5. Дизайн карточки — только из `docs/templates/invitation/DESIGN-SOURCES.md`
+
+### Риски (`create_risk_checklist`)
+
+1. Собрать event_type, location, format; outdoor если уместно
+2. Делегировать **risk-checklist-agent**
+3. Вернуть: таблица рисков + top_priorities + pre_event_checks
+
+### Соцсети (`create_social_posts`)
+
+1. Собрать event_name, event_date; platform (vk/telegram) по запросу
+2. Делегировать **social-posts-agent**
+3. Вернуть: посты + hashtags + posting_schedule
+
+### Благодарность (`write_thank_you`)
+
+1. Собрать event_name, event_type; recipient (guests/vendors/team) по запросу
+2. Делегировать **thank-you-writer-agent**
+3. Вернуть: варианты текстов + personalization_tips
+
+### Опрос (`create_feedback_survey`)
+
+1. Собрать event_type, expected_guests; survey_length по запросу
+2. Делегировать **feedback-survey-agent**
+3. Вернуть: intro + questions + thank_you_message + distribution_tips
 
 ## Формат ответа: План
 
@@ -178,6 +206,83 @@
 - [ ] Адрес
 - [ ] RSVP до ...
 - [ ] HTML открывается в браузере (если карточка)
+```
+
+## Формат ответа: Риски
+
+```markdown
+## ⚠️ Риски: [название события]
+
+**Сводка:** 12 рисков (3 высоких)
+
+| Категория | Риск | Вероятность | Влияние | Plan B | Ответственный |
+|-----------|------|-------------|---------|--------|--------------|
+| погода | ... | medium | high | ... | organizer |
+
+### Приоритеты
+1. ...
+
+### Проверки перед событием
+- За 7 дней: ...
+```
+
+## Формат ответа: Соцсети
+
+```markdown
+## 📱 Посты: [название события]
+
+### Анонс (VK)
+...
+
+### Countdown (−7 дней)
+...
+
+### Хештеги
+#свадьба #...
+
+### График публикаций
+| За сколько дней | Тип |
+|-----------------|-----|
+| 14 | announcement |
+```
+
+## Формат ответа: Благодарность
+
+```markdown
+## 💌 Спасибо: [название события]
+
+### Гостям (коротко, VK)
+...
+
+### Гостям (развёрнуто)
+...
+
+### Подрядчикам
+...
+
+### Советы по персонализации
+1. ...
+```
+
+## Формат ответа: Опрос
+
+```markdown
+## 📋 Опрос: [название события]
+
+**Время прохождения:** ~3 мин
+
+### Вступление
+...
+
+### Вопросы
+1. [шкала 1–5] Насколько вы довольны...
+2. [открытый] Что понравилось...
+
+### Сообщение после опроса
+...
+
+### Как разослать
+1. ...
 ```
 
 ## Правила

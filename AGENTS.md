@@ -63,6 +63,10 @@ docs/
 | Run-of-show | `skills/event-planner/agents/run-of-show-agent.md` | Программа дня по минутам |
 | Guest list | `skills/event-planner/agents/guest-list-agent.md` | RSVP, рассадка |
 | Invitation | `skills/event-planner/agents/invitation-writer-agent.md` | Тексты + HTML-карточки |
+| Risk checklist | `skills/event-planner/agents/risk-checklist-agent.md` | Риски и plan B |
+| Social posts | `skills/event-planner/agents/social-posts-agent.md` | Посты VK/Telegram |
+| Thank you | `skills/event-planner/agents/thank-you-writer-agent.md` | Благодарности после события |
+| Feedback survey | `skills/event-planner/agents/feedback-survey-agent.md` | Опрос гостей |
 
 Главный роутинг — в `skills/event-planner/SKILL.md`.
 

@@ -19,6 +19,10 @@ maxTurns: 8
 | `create_run_of_show` | run-of-show, программа на день, по минутам, cue | run-of-show-agent |
 | `manage_guest_list` | гости, RSVP, рассадка, список | guest-list-agent |
 | `write_invitation` | приглашение, invite, карточка, HTML, открытка | invitation-writer-agent |
+| `create_risk_checklist` | риски, plan B, что может пойти не так | risk-checklist-agent |
+| `create_social_posts` | пост VK/Telegram, анонс, countdown, соцсети | social-posts-agent |
+| `write_thank_you` | спасибо, благодарность, thank you | thank-you-writer-agent |
+| `create_feedback_survey` | опрос, feedback, NPS, удовлетворённость | feedback-survey-agent |
 | `clarify` | уточнение даты, гостей, типа | ответ напрямую |
 | `unknown` | неясно | задать 1–2 вопроса |
 
@@ -28,7 +32,7 @@ maxTurns: 8
 Сообщение: "{message}"
 
 Верни ТОЛЬКО одно слово-intent:
-create_event_plan | calculate_budget | full_event_planning | create_run_of_show | manage_guest_list | write_invitation | clarify | unknown
+create_event_plan | calculate_budget | full_event_planning | create_run_of_show | manage_guest_list | write_invitation | create_risk_checklist | create_social_posts | write_thank_you | create_feedback_survey | clarify | unknown
 ```
 
 LLM: MiniMax через OpenClaw Gateway (`gateway/config.yaml`). Temperature 0.3 для классификации.
@@ -39,6 +43,10 @@ Fallback по ключевым словам:
 - «run-of-show» / «программа на день» / «по минутам» → `create_run_of_show`
 - «гост» / «RSVP» / «рассадк» → `manage_guest_list`
 - «приглаш» / «invite» / «карточк» / «открытк» / «html invite» → `write_invitation`
+- «риск» / «plan b» / «пойти не так» → `create_risk_checklist`
+- «пост» / «анонс» / «vk» / «countdown» / «соцсет» → `create_social_posts`
+- «спасибо» / «благодар» / «thank you» → `write_thank_you`
+- «опрос» / «feedback» / «nps» / «удовлетворён» → `create_feedback_survey`
 - «смет» / «бюджет» → `calculate_budget`
 
 ## Извлечение данных события
@@ -77,6 +85,18 @@ Fallback по ключевым словам:
 ### write_invitation
 → `invitation-writer-agent.generate(event_data)` → вернуть invitation (+ html_card если карточка/HTML)
 → `output_format: both` если триггеры: карточка, открытка, html, красив
+
+### create_risk_checklist
+→ `risk-checklist-agent.generate(event_data)` → вернуть risk_checklist
+
+### create_social_posts
+→ `social-posts-agent.generate(event_data)` → вернуть social_posts
+
+### write_thank_you
+→ `thank-you-writer-agent.generate(event_data)` → вернуть thank_you
+
+### create_feedback_survey
+→ `feedback-survey-agent.generate(event_data)` → вернуть feedback_survey
 
 ### full_event_planning
 1. `planning-agent.generate(event_data)`

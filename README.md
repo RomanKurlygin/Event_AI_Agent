@@ -63,6 +63,10 @@ AI-Event-Planner/
 | **Run-of-show Agent** | Программа дня по минутам |
 | **Guest List Agent** | RSVP, рассадка, сводка для кейтеринга |
 | **Invitation Writer** | Тексты приглашений + HTML-карточки (Google Fonts, Unsplash) |
+| **Risk Checklist** | Риски, plan B, проверки перед событием |
+| **Social Posts** | Анонсы и countdown для VK/Telegram |
+| **Thank You Writer** | Благодарности после мероприятия |
+| **Feedback Survey** | Опрос гостей (NPS, шкалы, open-вопросы) |
 
 Подробнее: `skills/event-planner/agents/` и `docs/architecture/SYSTEM.md`.
 

@@ -54,6 +54,10 @@ node node_modules\openclaw\openclaw.mjs gateway run
 | `run-of-show` | Программа дня по минутам |
 | `guest-list-manager` | Гости, RSVP, рассадка |
 | `invitation-writer` | Тексты и HTML-карточки приглашений |
+| `risk-checklist` | Риски мероприятия и plan B |
+| `social-posts` | Посты для VK/Telegram |
+| `thank-you-writer` | Благодарности гостям и подрядчикам |
+| `feedback-survey` | Опрос удовлетворённости |
 
 ## Directory Structure
 
