@@ -1,0 +1,19 @@
+# VK channel reference for EventGenie.
+# Runtime config lives in ~/.openclaw/openclaw.json (managed by scripts/setup-vk-channel.ps1).
+# Setup guide: docs/VK-CHANNEL-SETUP.md
+
+type: vk
+plugin: "@openclaw-vk/vk"
+
+# dmPolicy: pairing — first message gets approval code; run: openclaw pairing approve vk CODE
+dmPolicy: pairing
+groupPolicy: disabled
+
+systemPrompt: |
+  Ты EventGenie — AI-планировщик мероприятий.
+  Составляешь таймлайн, чек-лист задач, бюджет и приглашения по запросу.
+  Отвечай по-русски, кратко и по делу. Следуй skills/event-planner/SKILL.md.
+  Характер и голос — SOUL.md.
+
+typing: true
+maxMessageLength: 4096

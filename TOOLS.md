@@ -34,9 +34,14 @@ Skills описывают _как_ работают инструменты. Эт
 ### cursor.yaml (локальная разработка)
 - channels/cursor.yaml — dmPolicy: open
 
+### VK (ВКонтакте)
+- Плагин: `@openclaw-vk/vk` — `npx openclaw plugins install @openclaw-vk/vk`
+- Настройка: `.\scripts\setup-vk-channel.ps1`
+- Гайд: `docs/VK-CHANNEL-SETUP.md`
+- Токен: `VK_GROUP_TOKEN` в `.env`
+
 ### Дополнительно (опционально)
-- VK: плагин `openclaw-vk` (см. [OpenClaw docs](https://docs.openclaw.ai/))
-- Telegram: добавить channel config при необходимости
+- Telegram: `npx openclaw channels add --channel telegram --token <token>`
 ```
 
 ## Предпочтения

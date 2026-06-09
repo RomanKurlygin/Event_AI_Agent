@@ -133,6 +133,17 @@ npx openclaw tui
 
 **Вариант C — Cursor:** работай в этом workspace — агент читает `AGENTS.md`, `SOUL.md`, `skills/event-planner/SKILL.md`.
 
+**Вариант D — VK (ВКонтакте):** бот сообщества → EventGenie. Подробно: **docs/VK-CHANNEL-SETUP.md**
+
+```powershell
+# 1. VK_GROUP_TOKEN в .env
+# 2. Настройка канала
+.\scripts\setup-vk-channel.ps1
+# 3. Gateway + pairing
+.\scripts\start-gateway.ps1
+npx openclaw pairing approve vk КОД
+```
+
 Пример запроса:
 
 ```
