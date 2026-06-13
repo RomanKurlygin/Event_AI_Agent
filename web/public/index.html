@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventGenie — AI Event Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-icon">🎉</span>
+        <div>
+          <strong>EventGenie</strong>
+          <span>AI Event Planner</span>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2>Событие</h2>
+        <label>
+          Название
+          <input type="text" id="event_name" placeholder="Свадьба Ивана и Марии" value="Свадьба Ивана и Марии">
+        </label>
+        <label>
+          Тип
+          <select id="event_type">
+            <option value="wedding">Свадьба</option>
+            <option value="birthday">День рождения</option>
+            <option value="corporate">Корпоратив</option>
+            <option value="conference">Конференция</option>
+            <option value="private">Частное</option>
+          </select>
+        </label>
+        <label>
+          Дата и время
+          <input type="datetime-local" id="event_date" value="2026-08-20T16:00">
+        </label>
+        <label>
+          Локация
+          <input type="text" id="location" placeholder="Москва" value="Москва, ресторан Панорама">
+        </label>
+        <label>
+          Гостей
+          <input type="number" id="expected_guests" min="1" value="100">
+        </label>
+        <label>
+          Бюджет (₽)
+          <input type="number" id="budget_limit" min="0" step="10000" value="1500000">
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Быстрые действия</h2>
+        <div class="chips" id="quick_actions"></div>
+      </section>
+
+      <div class="status" id="status">
+        <span class="dot"></span>
+        <span id="status_text">Проверка gateway…</span>
+      </div>
+    </aside>
+
+    <main class="chat-area">
+      <header class="chat-header">
+        <div>
+          <h1>Чат с EventGenie</h1>
+          <p>Запросы уходят в OpenClaw → Maestro → специализированные агенты</p>
+        </div>
+        <button type="button" class="btn-ghost" id="clear_chat">Новый чат</button>
+      </header>
+
+      <div class="messages" id="messages" aria-live="polite"></div>
+
+      <form class="composer" id="composer">
+        <textarea
+          id="message_input"
+          rows="2"
+          placeholder="Например: составь план подготовки и смету…"
+          required
+        ></textarea>
+        <button type="submit" class="btn-send" id="send_btn">
+          <span>Отправить</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

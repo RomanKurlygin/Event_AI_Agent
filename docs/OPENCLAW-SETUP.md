@@ -171,6 +171,7 @@ npx openclaw pairing approve vk КОД
 | MiniMax не работает | Добавь `OPENROUTER_API_KEY` в `.env` и запусти `setup-openclaw.ps1` |
 | Модель gpt-5.5 вместо MiniMax | `npx openclaw models set minimax-portal/MiniMax-M3` |
 | Переключиться на OpenRouter | `npx openclaw models set openrouter/auto` |
+| `API rate limit reached` (free) | Подождать 1–3 мин; или в `.env` сменить `OPENROUTER_MODEL` на платную / `openrouter/auto`, затем `setup-openclaw.ps1` |
 | Native Windows warnings | Работает, но для prod см. [Windows docs](https://docs.openclaw.ai/windows) |
 
 ## Ссылки

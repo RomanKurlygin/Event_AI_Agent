@@ -25,5 +25,10 @@ Import-DotEnvFile (Join-Path $ProjectRoot ".env")
 Import-DotEnvFile (Join-Path $env:USERPROFILE ".openclaw\.env")
 
 Write-Host "Starting gateway on http://127.0.0.1:18789 ..." -ForegroundColor Cyan
-Write-Host "Do not close this window while using EventGenie." -ForegroundColor Yellow
+Write-Host ""
+Write-Host ">>> This terminal is BUSY (gateway). Do not close it." -ForegroundColor Yellow
+Write-Host ">>> For Web UI: open a NEW terminal and run:" -ForegroundColor Green
+Write-Host "      .\scripts\start-ui.ps1" -ForegroundColor White
+Write-Host ">>> Or start both at once: .\scripts\start-eventgenie.ps1" -ForegroundColor Cyan
+Write-Host ""
 & "$NodeDir\npx.cmd" openclaw gateway run

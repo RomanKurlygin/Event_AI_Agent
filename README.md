@@ -14,9 +14,10 @@ AI-агент для планирования мероприятий: таймл
 1. Скопируй `.env.example` → `.env`, вставь **реальный** `MINIMAX_API_KEY`, сохрани файл.
 2. `npm install`
 3. `.\scripts\setup-openclaw.ps1` — настройка workspace и MiniMax
-4. `npx openclaw gateway run` — запуск gateway
-5. `npx openclaw dashboard --no-open` → `http://127.0.0.1:18789`
-6. Подробнее: **docs/OPENCLAW-SETUP.md**
+4. `.\scripts\start-gateway.ps1` — запуск gateway
+5. **Web UI (рекомендуется):** `.\scripts\start-ui.ps1` → `http://127.0.0.1:3080` — чат с EventGenie без VK
+6. Или OpenClaw dashboard: `.\scripts\start-dashboard.ps1` → `http://127.0.0.1:18789`
+7. Подробнее: **docs/OPENCLAW-SETUP.md**, **docs/WEB-UI.md**
 
 Для разработки в Cursor: **SOUL.md**, **skills/event-planner/SKILL.md**, **docs/prds/**.
 
@@ -34,6 +35,7 @@ AI-Event-Planner/
 ├── TOOLS.md               # Локальные заметки по инструментам
 ├── HEARTBEAT.md           # Периодические проверки агента
 ├── gateway/config.yaml    # OpenClaw + MiniMax
+├── web/                   # Web UI (чат → OpenClaw)
 ├── channels/              # Каналы (cursor, VK, …)
 ├── package.json           # openclaw dependency
 ├── skills/
@@ -73,6 +75,8 @@ AI-Event-Planner/
 
 ## Документация
 
+- **Web UI:** `docs/WEB-UI.md` — свой интерфейс чата (порт 3080)
+- **Презентация проекта:** `docs/presentation/EventGenie.html` (открыть в браузере)
 - Настройка OpenClaw: `docs/OPENCLAW-SETUP.md`
 - PRD: `docs/prds/PRD-event-planning.md`
 - Архитектура: `docs/architecture/SYSTEM.md`
