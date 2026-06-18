@@ -12,7 +12,7 @@
 
 ### Coding Plan key (`sk-cp-...`) — рекомендуется
 
-Файл `c:\Users\Zazo\Desktop\AI-Event-Planner\.env`:
+Файл `.env` в корне проекта (скопируй из `.env.example`):
 
 ```env
 MINIMAX_CODE_PLAN_KEY=sk-cp-ваш_ключ
@@ -47,7 +47,7 @@ MINIMAX_MODEL=MiniMax-M3
 ## 3. Установка зависимостей
 
 ```powershell
-cd C:\Users\Zazo\Desktop\AI-Event-Planner
+cd Event_AI_Agent   # или имя папки после git clone
 npm install
 ```
 
@@ -71,7 +71,7 @@ npx openclaw onboard --non-interactive --accept-risk `
   --mode local `
   --auth-choice minimax-global-api `
   --minimax-api-key "ВАШ_КЛЮЧ" `
-  --workspace "C:\Users\Zazo\Desktop\AI-Event-Planner" `
+  --workspace "$PWD" `
   --gateway-port 18789 `
   --gateway-auth token `
   --skip-channels --no-install-daemon --skip-health
@@ -93,12 +93,20 @@ npx openclaw gateway run
 
 Оставь окно открытым. Gateway слушает `ws://127.0.0.1:18789`.
 
-Фоновый сервис (опционально):
+Фоновый сервис (опционально, **автозапуск при входе в Windows**):
 
 ```powershell
 npx openclaw gateway install
 npx openclaw gateway start
 ```
+
+Отключить автозапуск (если при включении ПК сам открывается OpenClaw):
+
+```powershell
+npx openclaw gateway uninstall
+```
+
+Для ручного режима достаточно `.\scripts\start-gateway.ps1` без `install`.
 
 ## 7. Открыть Dashboard
 
@@ -123,17 +131,19 @@ npx openclaw doctor
 
 ## 9. Чат с EventGenie
 
-**Вариант A — Dashboard:** браузер → `http://127.0.0.1:18789`
+**Вариант A — Web UI (рекомендуется):** `.\scripts\start-eventgenie.ps1` → **http://127.0.0.1:3080**. Подробно: **docs/WEB-UI.md**
 
-**Вариант B — TUI в терминале:**
+**Вариант B — Dashboard:** браузер → `http://127.0.0.1:18789`
+
+**Вариант C — TUI в терминале:**
 
 ```powershell
 npx openclaw tui
 ```
 
-**Вариант C — Cursor:** работай в этом workspace — агент читает `AGENTS.md`, `SOUL.md`, `skills/event-planner/SKILL.md`.
+**Вариант D — Cursor:** работай в этом workspace — агент читает `AGENTS.md`, `SOUL.md`, `skills/event-planner/SKILL.md`.
 
-**Вариант D — VK (ВКонтакте):** бот сообщества → EventGenie. Подробно: **docs/VK-CHANNEL-SETUP.md**
+**Вариант E — VK (ВКонтакте):** бот сообщества → EventGenie. Подробно: **docs/VK-CHANNEL-SETUP.md**
 
 ```powershell
 # 1. VK_GROUP_TOKEN в .env

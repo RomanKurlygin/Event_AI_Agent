@@ -11,16 +11,17 @@
 ## Запуск OpenClaw
 
 ```powershell
-cd C:\Users\Zazo\Desktop\AI-Event-Planner
+cd Event_AI_Agent   # корень репозитория
 npm install
-node node_modules\openclaw\openclaw.mjs gateway run
+.\scripts\setup-openclaw.ps1
+.\scripts\start-eventgenie.ps1
 ```
 
-Дашборд: `http://localhost:18789` (токен через `npx openclaw dashboard --no-open`)
+Web UI: `http://127.0.0.1:3080` · Dashboard: `http://127.0.0.1:18789`
 
 ## Важно
 
-- `.env` содержит `MINIMAX_API_KEY` — никогда не коммитить
+- `.env` содержит `MINIMAX_CODE_PLAN_KEY` — никогда не коммитить
 - `logs/` gitignored — логи gateway хранятся локально
 - Skill: `skills/event-planner/SKILL.md`
 

@@ -11,13 +11,25 @@ AI-агент для планирования мероприятий: таймл
 
 ## Быстрый старт (OpenClaw + MiniMax)
 
-1. Скопируй `.env.example` → `.env`, вставь **реальный** `MINIMAX_API_KEY`, сохрани файл.
+```powershell
+git clone https://github.com/RomanKurlygin/Event_AI_Agent.git
+cd Event_AI_Agent
+```
+
+1. Скопируй `.env.example` → `.env`, вставь **реальный** `MINIMAX_CODE_PLAN_KEY` (`sk-cp-...`) и `MINIMAX_OAUTH_TOKEN` (то же значение).
 2. `npm install`
 3. `.\scripts\setup-openclaw.ps1` — настройка workspace и MiniMax
-4. `.\scripts\start-gateway.ps1` — запуск gateway
-5. **Web UI (рекомендуется):** `.\scripts\start-ui.ps1` → `http://127.0.0.1:3080` — чат с EventGenie без VK
-6. Или OpenClaw dashboard: `.\scripts\start-dashboard.ps1` → `http://127.0.0.1:18789`
-7. Подробнее: **docs/OPENCLAW-SETUP.md**, **docs/WEB-UI.md**
+4. **Всё сразу:** `.\scripts\start-eventgenie.ps1` → gateway + UI **http://127.0.0.1:3080**
+
+Или вручную:
+- `.\scripts\start-gateway.ps1` — gateway (терминал 1)
+- `.\scripts\start-ui.ps1` — Web UI (терминал 2)
+
+Остановить: `.\scripts\stop-all.ps1`
+
+Альтернатива — OpenClaw dashboard: `.\scripts\start-dashboard.ps1` → `http://127.0.0.1:18789`
+
+Подробнее: **docs/OPENCLAW-SETUP.md**, **docs/WEB-UI.md**, **docs/DEMO-MESSAGES.md** (готовые фразы для тестов).
 
 Для разработки в Cursor: **SOUL.md**, **skills/event-planner/SKILL.md**, **docs/prds/**.
 
@@ -35,7 +47,8 @@ AI-Event-Planner/
 ├── TOOLS.md               # Локальные заметки по инструментам
 ├── HEARTBEAT.md           # Периодические проверки агента
 ├── gateway/config.yaml    # OpenClaw + MiniMax
-├── web/                   # Web UI (чат → OpenClaw)
+├── web/                   # Web UI (чат → OpenClaw, порт 3080)
+├── scripts/               # start-gateway, start-ui, stop-all, setup
 ├── channels/              # Каналы (cursor, VK, …)
 ├── package.json           # openclaw dependency
 ├── skills/
@@ -75,13 +88,10 @@ AI-Event-Planner/
 
 ## Документация
 
-- **Web UI:** `docs/WEB-UI.md` — свой интерфейс чата (порт 3080)
-- **Презентация проекта:** `docs/presentation/EventGenie.html` (открыть в браузере)
+- **Web UI:** `docs/WEB-UI.md` — интерфейс чата (порт 3080)
+- **Демо-фразы:** `docs/DEMO-MESSAGES.md` — тест всех скиллов
+- **Презентация:** `docs/presentation/EventGenie.html` (открыть в браузере)
 - Настройка OpenClaw: `docs/OPENCLAW-SETUP.md`
 - PRD: `docs/prds/PRD-event-planning.md`
 - Архитектура: `docs/architecture/SYSTEM.md`
 - Репозиторий: [Event_AI_Agent](https://github.com/RomanKurlygin/Event_AI_Agent)
-
-## Лицензия
-
-MIT

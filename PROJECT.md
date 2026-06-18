@@ -46,13 +46,14 @@
 | Задача | Команда |
 |--------|---------|
 | Установка | `npm install` |
-| Запуск gateway | `npx openclaw gateway run` |
-| Dev mode | `npx openclaw dev` |
+| Настройка | `.\scripts\setup-openclaw.ps1` |
+| Gateway + Web UI | `.\scripts\start-eventgenie.ps1` |
+| Только gateway | `.\scripts\start-gateway.ps1` |
+| Только Web UI | `.\scripts\start-ui.ps1` → `http://127.0.0.1:3080` |
+| Остановить всё | `.\scripts\stop-all.ps1` |
+| Dashboard | `.\scripts\start-dashboard.ps1` → `http://127.0.0.1:18789` |
 | Тест skill | `npx openclaw test skills/event-planner` |
 | Логи | `npx openclaw logs` |
-| Dashboard | `npx openclaw dashboard --no-open` → `http://localhost:18789` |
-| Python (опц.) | `uvicorn src.main:app --reload --port 8001` |
-| Тесты (опц.) | `pytest` |
 
 ### Validation Command
 
@@ -63,11 +64,13 @@ npx openclaw test skills/event-planner && npx openclaw lint
 ### Запуск на Windows (PowerShell)
 
 ```powershell
-cd C:\Users\Zazo\Desktop\AI-Event-Planner
+git clone https://github.com/RomanKurlygin/Event_AI_Agent.git
+cd Event_AI_Agent
 copy .env.example .env
-# Вставь MINIMAX_API_KEY в .env
+# Вставь MINIMAX_CODE_PLAN_KEY (sk-cp-...) в .env
 npm install
-node node_modules\openclaw\openclaw.mjs gateway run
+.\scripts\setup-openclaw.ps1
+.\scripts\start-eventgenie.ps1
 ```
 
 ---
@@ -78,35 +81,21 @@ node node_modules\openclaw\openclaw.mjs gateway run
 AI-Event-Planner/
 ├── AGENTS.md, SOUL.md, IDENTITY.md, USER.md, MEMORY.md
 ├── gateway/config.yaml          # OpenClaw + MiniMax провайдер
+├── web/                         # Web UI (React + server.mjs)
+├── scripts/                     # start-gateway, start-ui, stop-all, setup
 ├── channels/cursor.yaml         # Локальный канал (dev)
 ├── skills/event-planner/
 │   ├── SKILL.md                 # Главный промпт
-│   └── agents/
-│       ├── maestro.md
-│       ├── planning-agent.md
-│       └── finance-agent.md
+│   └── agents/                  # maestro, planning, finance, …
 ├── docs/
 │   ├── prds/
 │   ├── architecture/
-│   ├── plans/
-│   ├── state/
-│   └── templates/
+│   ├── WEB-UI.md
+│   ├── DEMO-MESSAGES.md
+│   └── state/
 ├── .claude/                     # Claude Code: agents, commands, skills
 ├── logs/                        # Логи gateway (gitignored)
-└── src/                         # (опционально) FastAPI runtime
-    ├── main.py
-    ├── api/routes.py
-    ├── agents/
-    │   ├── maestro.py
-    │   ├── planning_agent.py
-    │   └── finance_agent.py
-    ├── chains/
-    │   ├── planning_chain.py
-    │   └── budget_chain.py
-    ├── llm/gigachat_client.py
-    └── models/
-        ├── event.py
-        └── budget.py
+└── output/                      # Результаты агента (gitignored)
 ```
 
 ---
@@ -129,9 +118,10 @@ AI-Event-Planner/
 
 См. `.env.example`. Обязательные для OpenClaw runtime:
 
-- `MINIMAX_API_KEY` — ключ MiniMax API
-- `MINIMAX_BASE_URL` — `https://api.minimax.io/v1` (international) или `https://api.minimax.chat/v1` (domestic)
-- `MINIMAX_MODEL` — например `MiniMax-Text-01`
+- `MINIMAX_CODE_PLAN_KEY` — Coding Plan key (`sk-cp-...`)
+- `MINIMAX_OAUTH_TOKEN` — то же значение (для minimax-portal)
+- `MINIMAX_BASE_URL`, `MINIMAX_MODEL` — см. `.env.example`
+- `OPENROUTER_API_KEY` — опционально, fallback LLM
 
 Опционально: `GIGACHAT_*` (Python Phase 2), `DATABASE_URL`
 

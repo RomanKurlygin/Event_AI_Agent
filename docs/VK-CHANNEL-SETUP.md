@@ -33,7 +33,7 @@ VK_GROUP_TOKEN=vk1.a_ваш_токен
 ## 4. Установите и настройте канал
 
 ```powershell
-cd C:\Users\Zazo\Desktop\AI-Event-Planner
+cd Event_AI_Agent   # корень после git clone
 .\scripts\setup-vk-channel.ps1
 ```
 

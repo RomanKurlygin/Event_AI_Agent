@@ -6,7 +6,8 @@ Skills описывают _как_ работают инструменты. Эт
 
 ```markdown
 ### MiniMax API
-- Ключ: MINIMAX_API_KEY (в .env, не коммитить)
+- Ключ Coding Plan: `MINIMAX_CODE_PLAN_KEY` + `MINIMAX_OAUTH_TOKEN` (в `.env`, не коммитить)
+- Обычный ключ: `MINIMAX_API_KEY` (`sk-api-...`) — только если не Coding Plan
 - International: https://api.minimax.io/v1
 - Domestic (Китай): https://api.minimax.chat/v1
 - Модель: MiniMax-Text-01 (или из dashboard MiniMax)
